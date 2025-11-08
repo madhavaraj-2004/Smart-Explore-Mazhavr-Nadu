@@ -31,14 +31,17 @@ export default function About() {
           <div className="about-flex">
             <div className="about-textblock">
               <p className="about-text">
-                "Mazhavar Nadu" (மழவர் நாடு) is a historic region of ancient Tamilakam. This territory was ruled by
+                "Mazhavar Nadu" (மழவர் நாடு) is a historic region of ancient Tamilnadu. This territory was ruled by
                 the Mazhavar chieftains, who are famously mentioned in Sangam literature.
               </p>
               <p className="about-text">
                 The region was renowned for its skilled warriors and benevolent rulers, such as{" "}
                 <strong>Valvil Ori</strong>, who ruled the Kolli Hills (part of modern Namakkal) and was celebrated
-                for his archery and generosity.
+                for his archery and generosity. Equally prominent was{" "}
+                <strong>Adhiyaman Neduman Anji</strong> of <strong>Tagadur</strong> (present-day Dharmapuri),
+                remembered for his valor, wisdom, and patronage of arts and Tamil literature.
               </p>
+
               <p className="about-text">Today, this ancient land corresponds to the modern districts of:</p>
               <ul className="about-list">
                 <li><span className="highlight">Salem:</span> The steel city with a rich history and gateway to Yercaud.</li>
@@ -48,9 +51,16 @@ export default function About() {
               </ul>
             </div>
             <div className="about-map">
-              {/* You can later replace this div with your map image */}
               <div className="about-mapbox">
-                <p className="map-placeholder">[Map or Image Coming Soon]</p>
+                <iframe
+                  title="Mazhavarnadu Region Map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d391441.80762937074!2d77.615!3d11.6!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf0e8f1f67e85%3A0x2d6c0c1a2e4d9d5!2sSalem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1730300000000!5m2!1sen!2sin"
+                  width="100%"
+                  height="450"
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </div>
