@@ -1,5 +1,5 @@
 import React from 'react';
-import Salem from "./pages/districts/Salem";
+import './Salem.css';
 // Assuming you have a main CSS file that defines classes like
 // .section-container, .grid-2, .card, .anchor-link, etc.
 
