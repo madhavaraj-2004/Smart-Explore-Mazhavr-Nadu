@@ -32,7 +32,7 @@ function App() {
           {/* About Page Route */}
           <Route path="/about" element={<About />} />
           {/* District Page Route */}
-          <Route path="/salem" element={<Salem />} />
+          <Route path="/districts/salem" element={<Salem />} />
 
         </Routes>
       </main>

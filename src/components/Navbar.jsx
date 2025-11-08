@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = ({ onAskMazhavaClick }) => {
   const [isMobileNavActive, setIsMobileNavActive] = useState(false);
@@ -13,46 +13,29 @@ const Navbar = ({ onAskMazhavaClick }) => {
   };
 
   return (
-    <nav className="navbar bg-orange-600 text-white py-4 shadow-md">
+    <nav className="navbar bg-orange-600 text-white py-4">
       <div className="nav-container max-w-7xl mx-auto flex justify-between items-center px-6">
         {/* ✅ Logo */}
-        <Link
-          to="/"
-          className="nav-logo flex items-center gap-2"
-          onClick={handleLinkClick}
-        >
+        <Link to="/" className="nav-logo flex items-center gap-2" onClick={handleLinkClick}>
           <div className="logo-icon bg-white text-orange-600 font-bold rounded-full w-8 h-8 flex items-center justify-center">
             M
           </div>
           <div className="logo-text">
-            <span className="logo-title block text-xl font-bold">
-              Smart Explore
-            </span>
-            <span className="logo-subtitle text-sm opacity-90">
-              Mazhavar Nadu
-            </span>
+            <span className="logo-title block text-xl font-bold">Smart Explore</span>
+            <span className="logo-subtitle text-sm opacity-90">Mazhavar Nadu</span>
           </div>
         </Link>
 
         {/* ✅ Desktop Navigation */}
-        <div className="desktop-nav hidden md:flex gap-6 items-center">
-          <Link
-            to="/"
-            className="nav-link hover:text-yellow-300"
-            onClick={handleLinkClick}
-          >
+        <div className="desktop-nav hidden md:flex gap-6">
+          <Link to="/" className="nav-link hover:text-yellow-300" onClick={handleLinkClick}>
             Home
           </Link>
-
-          <Link
-            to="/about"
-            className="nav-link hover:text-yellow-300"
-            onClick={handleLinkClick}
-          >
+          <Link to="/about" className="nav-link hover:text-yellow-300" onClick={handleLinkClick}>
             About
           </Link>
 
-          {/* 🌆 Districts Dropdown */}
+          {/* 🔗 Districts Dropdown */}
           <div className="dropdown relative group">
             <button className="nav-link flex items-center gap-1 hover:text-yellow-300">
               Districts
@@ -67,51 +50,31 @@ const Navbar = ({ onAskMazhavaClick }) => {
               </svg>
             </button>
 
-            <div className="dropdown-menu absolute hidden group-hover:block bg-white text-gray-800 rounded-md shadow-lg mt-2 py-2 w-40 z-10">
+            <div className="dropdown-menu absolute hidden group-hover:block bg-white text-gray-800 rounded-md shadow-lg mt-2 py-2">
+              {/* ✅ Only changed href → Link to proper route */}
               <Link
                 to="/districts/salem"
-                className="block px-4 py-2 hover:bg-gray-100"
+                className="dropdown-item block px-4 py-2 hover:bg-gray-100"
                 onClick={handleLinkClick}
               >
                 Salem
               </Link>
-              <Link
-                to="/districts/dharmapuri"
-                className="block px-4 py-2 hover:bg-gray-100"
-                onClick={handleLinkClick}
-              >
+              <a href="/#districts" className="dropdown-item block px-4 py-2 hover:bg-gray-100">
                 Dharmapuri
-              </Link>
-              <Link
-                to="/districts/krishnagiri"
-                className="block px-4 py-2 hover:bg-gray-100"
-                onClick={handleLinkClick}
-              >
+              </a>
+              <a href="/#districts" className="dropdown-item block px-4 py-2 hover:bg-gray-100">
                 Krishnagiri
-              </Link>
-              <Link
-                to="/districts/namakkal"
-                className="block px-4 py-2 hover:bg-gray-100"
-                onClick={handleLinkClick}
-              >
+              </a>
+              <a href="/#districts" className="dropdown-item block px-4 py-2 hover:bg-gray-100">
                 Namakkal
-              </Link>
+              </a>
             </div>
           </div>
 
-          <Link
-            to="/"
-            className="nav-link hover:text-yellow-300"
-            onClick={handleLinkClick}
-          >
+          <Link to="/" className="nav-link hover:text-yellow-300" onClick={handleLinkClick}>
             Attractions
           </Link>
-
-          <Link
-            to="/"
-            className="nav-link hover:text-yellow-300"
-            onClick={handleLinkClick}
-          >
+          <Link to="/" className="nav-link hover:text-yellow-300" onClick={handleLinkClick}>
             Culture
           </Link>
         </div>
@@ -147,59 +110,22 @@ const Navbar = ({ onAskMazhavaClick }) => {
       </div>
 
       {/* ✅ Mobile Navigation */}
-      <div
-        className={`mobile-nav md:hidden ${
-          isMobileNavActive ? "block" : "hidden"
-        } bg-orange-700`}
-      >
-        <Link
-          to="/"
-          className="block py-2 px-6 hover:bg-orange-800"
-          onClick={handleLinkClick}
-        >
+      <div className={`mobile-nav md:hidden ${isMobileNavActive ? 'block' : 'hidden'} bg-orange-700`}>
+        <Link to="/" className="mobile-nav-link block py-2 px-6 hover:bg-orange-800" onClick={handleLinkClick}>
           Home
         </Link>
-        <Link
-          to="/about"
-          className="block py-2 px-6 hover:bg-orange-800"
-          onClick={handleLinkClick}
-        >
+        <Link to="/about" className="mobile-nav-link block py-2 px-6 hover:bg-orange-800" onClick={handleLinkClick}>
           About
         </Link>
-        <Link
-          to="/districts/salem"
-          className="block py-2 px-6 hover:bg-orange-800"
-          onClick={handleLinkClick}
-        >
+        <Link to="/districts/salem" className="mobile-nav-link block py-2 px-6 hover:bg-orange-800" onClick={handleLinkClick}>
           Salem
-        </Link>
-        <Link
-          to="/districts/dharmapuri"
-          className="block py-2 px-6 hover:bg-orange-800"
-          onClick={handleLinkClick}
-        >
-          Dharmapuri
-        </Link>
-        <Link
-          to="/districts/krishnagiri"
-          className="block py-2 px-6 hover:bg-orange-800"
-          onClick={handleLinkClick}
-        >
-          Krishnagiri
-        </Link>
-        <Link
-          to="/districts/namakkal"
-          className="block py-2 px-6 hover:bg-orange-800"
-          onClick={handleLinkClick}
-        >
-          Namakkal
         </Link>
         <button
           onClick={() => {
             onAskMazhavaClick?.();
             handleLinkClick();
           }}
-          className="block py-2 px-6 hover:bg-orange-800 w-full text-left"
+          className="mobile-nav-link block py-2 px-6 hover:bg-orange-800 w-full text-left"
         >
           Ask Mazhava
         </button>
