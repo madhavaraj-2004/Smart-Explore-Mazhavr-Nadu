@@ -1,128 +1,218 @@
-/* General Page Layout */
-.salem-page-container {
-    max-width: 1200px; /* Center content */
-    margin: 0 auto;
-    padding: 20px;
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f6ef;
+  color: #333;
 }
 
-.page-header {
-    text-align: center;
-    padding: 40px 20px;
-    background-color: #f8f8f8; /* Light background for the header */
-    margin-bottom: 30px;
-    border-radius: 8px;
+.salem-container {
+  overflow-x: hidden;
 }
 
-.header-title {
-    font-size: 2.5em;
-    color: #007bff; /* Primary brand color */
-    margin-bottom: 10px;
+/* Header */
+.salem-header {
+  text-align: center;
+  background: linear-gradient(90deg, #f97316, #fb923c);
+  color: white;
+  padding: 70px 20px 50px;
 }
 
-.header-subtitle {
-    font-size: 1.1em;
-    color: #666;
+.salem-header h1 {
+  font-size: 42px;
+  color: white;
+  font-weight: 700;
 }
 
-.page-content-wrapper {
-    padding: 0 20px;
+.salem-header p {
+  margin-top: 10px;
+  color: white;
+  font-size: 18px;
 }
 
-/* Section Styling */
-.section-container {
-    padding: 40px 0;
+.underline {
+  width: 80px;
+  height: 3px;
+  background-color: #f97316;
+  margin: 15px auto 0;
+  border-radius: 3px;
 }
 
-.section-title {
-    font-size: 1.8em;
-    color: #333;
-    padding-bottom: 10px;
-    margin-bottom: 25px;
+/* Navbar */
+.salem-nav {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
-.section-paragraph {
-    line-height: 1.6;
-    color: #444;
+.salem-nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 14px 24px;
+  transition: 0.3s;
+  font-weight: 500;
 }
 
-.section-divider {
-    border: 0;
-    height: 1px;
-    background-image: linear-gradient(to right, #ccc, #eee, #ccc);
-    margin: 40px 0;
+.salem-nav a:hover {
+  color: #f97316;
 }
 
-/* Grid Layouts for Tourism and Divisions */
-.grid-layout {
-    display: grid;
-    gap: 20px;
+/* Sections */
+.salem-section {
+  padding: 70px 8%;
+  text-align: center;
 }
 
-.grid-2 {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+.salem-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
 }
 
-.grid-responsive-cards {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+.salem-section h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background-color: #f97316;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
-/* Card Styling */
-.card {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s;
+/* Transparent “Glass” Cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+/* Grid */
+.salem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
 }
 
-.card-title {
-    color: #007bff;
-    margin-bottom: 10px;
+.salem-card {
+  padding: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
-/* Navigation & Anchor Links */
-.section-nav {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    padding: 10px 0;
-    margin-bottom: 20px;
-    position: sticky; /* Optional: Make it stick to the top */
-    top: 0;
-    background-color: #fff;
-    z-index: 10;
-    border-bottom: 1px solid #eee;
+.salem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-.anchor-link {
-    background: none;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-weight: bold;
-    color: #333;
-    border-radius: 5px;
-    transition: background-color 0.2s, color 0.2s;
+.salem-card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 15px;
 }
 
-.anchor-link:hover {
-    background-color: #007bff;
-    color: white;
+.salem-card h3 {
+  color: #f97316;
+  font-size: 20px;
+  margin-bottom: 8px;
 }
 
-/* Specific Education List */
-.institution-list {
-    list-style: disc inside;
-    padding-left: 20px;
+/* Divisions Section */
+#divisions {
+  background-color: #faf8f4;
+  padding: 70px 8%;
+  text-align: center;
 }
 
-.institution-item {
-    padding: 8px 0;
-    border-bottom: 1px dotted #eee;
+#divisions h2 {
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
 }
+
+#divisions h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background-color: #f97316;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+#divisions .salem-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+#divisions .salem-card {
+  text-align: left;              /* Left-align text */
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  padding: 25px 20px;
+  width: 100%;
+  max-width: 280px;             /* Consistent width for cards */
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+#divisions .salem-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+#divisions .salem-card h3 {
+  color: #f97316;
+  text-align: center;            /* Division title in center */
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+#divisions .salem-card ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+#divisions .salem-card li {
+  font-size: 15px;
+  color: #444;
+  margin: 6px 0;
+}
+
+
+
+.salem-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Education */
+.education-list {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 30px;
+  list-style-type: disc;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+}
+
+.education-list li {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #444;
+}
+

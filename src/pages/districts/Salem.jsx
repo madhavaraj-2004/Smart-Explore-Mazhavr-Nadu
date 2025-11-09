@@ -1,58 +1,51 @@
 import React from "react";
 import "./Salem.css";
 
-const Salem = () => {
-  // --- History Text ---
+export default function Salem() {
   const historyText =
     "Salem, historically a central part of the ancient Mazhavar Nadu region, boasts a deep cultural heritage. Its name is believed to have evolved from 'Cheralam' or 'Sailam' (hill country). The region was under the rule of various dynasties, including the Cheras and Cholas. A notable figure associated with this area is the chieftain Valvil Ori, a legendary archer celebrated in Sangam literature for his valor and patronage of the arts. Salem served as a significant administrative and trade hub, particularly known for its textile industry and mineral wealth (magnesite and iron ore) through the centuries.";
 
-  // --- Tourism Spots (with images) ---
+  // ✅ All tourism spots — verified syntax
   const tourismSpots = [
     {
       name: "Yercaud",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/7/7f/Yercaud_Lake.jpg",
+      image: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Yercaud_Town_View.jpg",
       description:
         "A beautiful hill station in the Shevaroy Hills, known for pleasant weather, coffee plantations, Big Lake, and scenic viewpoints.",
     },
     {
       name: "Kiliyur Falls",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/4/49/Kiliyur_Falls_Yercaud.jpg",
+      image: "https://upload.wikimedia.org/wikipedia/commons/4/49/Kiliyur_Falls_Yercaud.jpg",
       description:
         "A 300-foot waterfall in Yercaud, best visited after the monsoon season, offering a picturesque and refreshing view.",
     },
     {
       name: "Mettur Dam",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/8/84/Mettur_Dam.jpg",
+      image: "https://upload.wikimedia.org/wikipedia/commons/8/84/Mettur_Dam.jpg",
       description:
         "One of the largest dams in India, built across the Kaveri River. It provides irrigation and hydroelectric power to the region.",
     },
     {
       name: "Kurumbapatti Zoological Park",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/1/18/Kurumbapatti_zoo_entrance.jpg",
+      image: "https://upload.wikimedia.org/wikipedia/commons/1/18/Kurumbapatti_zoo_entrance.jpg",
       description:
         "A mini-zoo near Salem city, home to various species of birds and animals — a perfect destination for family outings.",
     },
     {
-      name: "Mutthumalai Forest",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/b/bf/Servarayan_Hills_Yercaud.jpg",
+      name: "Muttal Falls",
+      image: "https://upload.wikimedia.org/wikipedia/commons/4/44/Waterfalls_in_Tamil_Nadu.jpg",
       description:
-        "A lush green forest area near Yercaud, offering trekking trails and panoramic valley views. Ideal for nature lovers and explorers.",
+        "Located near Muttal village, this serene waterfall is surrounded by dense greenery and rocky terrain — a hidden natural gem for visitors.",
     },
     {
       name: "Sankagiri Fort",
-      image:
-        "https://upload.wikimedia.org/wikipedia/commons/a/a8/Sankagiri_Fort.jpg",
+      image: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Sankagiri_Fort.jpg",
       description:
         "An ancient fort built during the Vijayanagara Empire, later used by the British. It offers historic charm and great hilltop views.",
     },
   ];
 
-  // --- Major Temples ---
+  // ✅ Major Temples
   const majorTemples = [
     {
       name: "Kottai Mariamman Temple",
@@ -86,7 +79,7 @@ const Salem = () => {
     },
   ];
 
-  // --- Divisional Details ---
+  // ✅ Divisional details
   const divisionalDetails = [
     { division: "Salem", taluks: ["Salem North", "Salem South", "Salem West"] },
     { division: "Attur", taluks: ["Attur", "Gangavalli", "Pethanaickenpalayam"] },
@@ -95,130 +88,95 @@ const Salem = () => {
     { division: "Sankari", taluks: ["Sankari", "Edappadi"] },
   ];
 
-  // --- Educational Institutions ---
+  // ✅ Education
   const educationInstitutions = [
     "Periyar University (State University)",
-    "Government Arts College (Salem)",
-    "Sona College of Technology (Autonomous)",
-    "Vinayaka Missions Research Foundation (Deemed University)",
+    "Government Arts College (Autonomous), Salem-7",
     "Government Engineering College, Salem",
     "Salem Medical College (Mohan Kumaramangalam Medical College)",
+    "Sona College of Technology (Autonomous)",
+    "Vinayaka Missions Research Foundation (Deemed University)",
+    "AVS College of Arts and Science (Autonomous)",
   ];
 
-  // --- Smooth Scroll Function ---
-  const scrollToSection = (id) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
+  // ✅ JSX Rendering
   return (
-    <div className="salem-page-container">
-      {/* Header Section */}
-      <header className="page-header">
-        <h1 className="header-title">Discover Salem District</h1>
-        <p className="header-subtitle">
-          The Mango City and a gateway to the historic Mazhavar Nadu region.
-        </p>
+    <div className="salem-container">
+      {/* Header */}
+      <header className="salem-header">
+        <h1>Discover Salem District</h1>
+        <div className="underline"></div>
+        <p>The Mango City and gateway to the historic Mazhavar Nadu region</p>
       </header>
 
-      {/* Section Navigation */}
-      <nav className="section-nav">
-        <button className="anchor-link" onClick={() => scrollToSection("history-section")}>
-          History
-        </button>
-        <button className="anchor-link" onClick={() => scrollToSection("tourism-section")}>
-          Tourism
-        </button>
-        <button className="anchor-link" onClick={() => scrollToSection("temples-section")}>
-          Temples
-        </button>
-        <button className="anchor-link" onClick={() => scrollToSection("divisions-section")}>
-          Divisions
-        </button>
-        <button className="anchor-link" onClick={() => scrollToSection("education-section")}>
-          Education
-        </button>
+      {/* Navbar */}
+      <nav className="salem-nav">
+        <a href="#history">History</a>
+        <a href="#tourism">Tourism</a>
+        <a href="#temples">Temples</a>
+        <a href="#divisions">Divisions</a>
+        <a href="#education">Education</a>
       </nav>
 
-      <main className="page-content-wrapper">
-        {/* 1. History Section */}
-        <section id="history-section" className="section-container">
-          <h2 className="section-title">History of Salem</h2>
-          <p className="section-paragraph">{historyText}</p>
-        </section>
+      {/* History Section */}
+      <section id="history" className="salem-section">
+        <h2>History of Salem</h2>
+        <p className="salem-text">{historyText}</p>
+      </section>
 
-        <hr className="section-divider" />
+      {/* Tourism Section */}
+      <section id="tourism" className="salem-section">
+        <h2>Popular Tourist Places</h2>
+        <div className="salem-grid">
+          {tourismSpots.map((spot, i) => (
+            <div key={i} className="salem-card glass-card">
+              <img src={spot.image} alt={spot.name} />
+              <h3>{spot.name}</h3>
+              <p>{spot.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        {/* 2. Tourism Section */}
-        <section id="tourism-section" className="section-container">
-          <h2 className="section-title">Popular Tourist Places</h2>
-          <div className="grid-layout grid-2">
-            {tourismSpots.map((spot, index) => (
-              <div key={index} className="card tourism-card">
-                <img
-                  src={spot.image}
-                  alt={spot.name}
-                  className="tourism-image rounded-md mb-3 w-full h-48 object-cover"
-                />
-                <h3 className="card-title">{spot.name}</h3>
-                <p className="card-description">{spot.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
+      {/* Temples Section */}
+      <section id="temples" className="salem-section">
+        <h2>Major Temples in Salem</h2>
+        <div className="salem-grid">
+          {majorTemples.map((temple, i) => (
+            <div key={i} className="salem-card glass-card">
+              <h3>{temple.name}</h3>
+              <p>{temple.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        <hr className="section-divider" />
+      {/* Divisions Section */}
+      <section id="divisions" className="salem-section">
+        <h2>Administrative Divisions</h2>
+        <div className="salem-grid">
+          {divisionalDetails.map((div, i) => (
+            <div key={i} className="salem-card glass-card">
+              <h3>{div.division} Division</h3>
+              <ul>
+                {div.taluks.map((taluk, j) => (
+                  <li key={j}>{taluk}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
 
-        {/* 3. Major Temples Section */}
-        <section id="temples-section" className="section-container">
-          <h2 className="section-title">Major Temples in Salem</h2>
-          <div className="grid-layout grid-2">
-            {majorTemples.map((temple, index) => (
-              <div key={index} className="card temple-card">
-                <h3 className="card-title">{temple.name}</h3>
-                <p className="card-description">{temple.description}</p>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <hr className="section-divider" />
-
-        {/* 4. Divisional Details */}
-        <section id="divisions-section" className="section-container">
-          <h2 className="section-title">Administrative Divisional Details</h2>
-          <p className="section-subtitle">Revenue Divisions and their Taluks</p>
-          <div className="grid-layout grid-responsive-cards">
-            {divisionalDetails.map((detail, index) => (
-              <div key={index} className="card division-card">
-                <h3 className="card-title division-title">
-                  {detail.division} Division
-                </h3>
-                <ul className="division-taluks-list">
-                  {detail.taluks.map((taluk, i) => (
-                    <li key={i}>{taluk}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <hr className="section-divider" />
-
-        {/* 5. Education Section */}
-        <section id="education-section" className="section-container">
-          <h2 className="section-title">Major Educational Institutions</h2>
-          <ul className="institution-list">
-            {educationInstitutions.map((institution, index) => (
-              <li key={index} className="institution-item">
-                {institution}
-              </li>
-            ))}
-          </ul>
-        </section>
-      </main>
+      {/* Education Section */}
+      <section id="education" className="salem-section">
+        <h2>Major Educational Institutions</h2>
+        <ul className="education-list glass-card">
+          {educationInstitutions.map((inst, i) => (
+            <li key={i}>{inst}</li>
+          ))}
+        </ul>
+      </section>
     </div>
   );
-};
-
-export default Salem;
+}

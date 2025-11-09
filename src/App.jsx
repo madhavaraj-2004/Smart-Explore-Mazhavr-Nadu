@@ -8,7 +8,7 @@ import HighlightsSection from './components/HighlightsSection';
 import DistrictsSection from './components/DistrictsSection';
 import Chatbot from './components/Chatbot';
 import About from './pages/About'; // ✅ Import About page
-import Salem from "./pages/districts/Salem";
+import Salem from './pages/districts/Salem'; // ✅ Import Salem district page
 
 function App() {
   return (
