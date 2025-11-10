@@ -1,51 +1,61 @@
 import React from "react";
 import "./Salem.css";
 
+// Local image imports
+import yercaudImage from "./district_asset/yercaud.jpg";
+import killiyurImage from "./district_asset/killiyurfalls.jpg";
+import kurumbapattiImage from "./district_asset/kurumbapatti.jpg";
+import metturdamImage from "./district_asset/metturdam.jpg";
+import muttalImage from "./district_asset/muttalfalls.jpg";
+import sankagiriImage from "./district_asset/sankagirifort.jpg";
+
+
 export default function Salem() {
+  //  History content
   const historyText =
     "Salem, historically a central part of the ancient Mazhavar Nadu region, boasts a deep cultural heritage. Its name is believed to have evolved from 'Cheralam' or 'Sailam' (hill country). The region was under the rule of various dynasties, including the Cheras and Cholas. A notable figure associated with this area is the chieftain Valvil Ori, a legendary archer celebrated in Sangam literature for his valor and patronage of the arts. Salem served as a significant administrative and trade hub, particularly known for its textile industry and mineral wealth (magnesite and iron ore) through the centuries.";
 
-  // ✅ All tourism spots — verified syntax
+  // Tourism spots (local images)
   const tourismSpots = [
     {
       name: "Yercaud",
-      image: "https://upload.wikimedia.org/wikipedia/commons/1/1e/Yercaud_Town_View.jpg",
+      image: yercaudImage,
       description:
         "A beautiful hill station in the Shevaroy Hills, known for pleasant weather, coffee plantations, Big Lake, and scenic viewpoints.",
     },
     {
       name: "Kiliyur Falls",
-      image: "https://upload.wikimedia.org/wikipedia/commons/4/49/Kiliyur_Falls_Yercaud.jpg",
+      image: killiyurImage,
       description:
         "A 300-foot waterfall in Yercaud, best visited after the monsoon season, offering a picturesque and refreshing view.",
     },
     {
       name: "Mettur Dam",
-      image: "https://upload.wikimedia.org/wikipedia/commons/8/84/Mettur_Dam.jpg",
+      image: metturdamImage,
       description:
         "One of the largest dams in India, built across the Kaveri River. It provides irrigation and hydroelectric power to the region.",
     },
     {
       name: "Kurumbapatti Zoological Park",
-      image: "https://upload.wikimedia.org/wikipedia/commons/1/18/Kurumbapatti_zoo_entrance.jpg",
+      image: kurumbapattiImage,
       description:
         "A mini-zoo near Salem city, home to various species of birds and animals — a perfect destination for family outings.",
     },
     {
       name: "Muttal Falls",
-      image: "https://upload.wikimedia.org/wikipedia/commons/4/44/Waterfalls_in_Tamil_Nadu.jpg",
+      image: muttalImage,
       description:
         "Located near Muttal village, this serene waterfall is surrounded by dense greenery and rocky terrain — a hidden natural gem for visitors.",
     },
     {
       name: "Sankagiri Fort",
-      image: "https://upload.wikimedia.org/wikipedia/commons/a/a8/Sankagiri_Fort.jpg",
+      image: sankagiriImage,
       description:
         "An ancient fort built during the Vijayanagara Empire, later used by the British. It offers historic charm and great hilltop views.",
     },
   ];
 
-  // ✅ Major Temples
+  // ✅ Major temples
   const majorTemples = [
     {
       name: "Kottai Mariamman Temple",
@@ -79,7 +89,7 @@ export default function Salem() {
     },
   ];
 
-  // ✅ Divisional details
+  // ✅ Administrative divisions
   const divisionalDetails = [
     { division: "Salem", taluks: ["Salem North", "Salem South", "Salem West"] },
     { division: "Attur", taluks: ["Attur", "Gangavalli", "Pethanaickenpalayam"] },
@@ -88,7 +98,7 @@ export default function Salem() {
     { division: "Sankari", taluks: ["Sankari", "Edappadi"] },
   ];
 
-  // ✅ Education
+  // ✅ Educational institutions
   const educationInstitutions = [
     "Periyar University (State University)",
     "Government Arts College (Autonomous), Salem-7",
@@ -99,7 +109,7 @@ export default function Salem() {
     "AVS College of Arts and Science (Autonomous)",
   ];
 
-  // ✅ JSX Rendering
+  // ✅ Page structure JSX
   return (
     <div className="salem-container">
       {/* Header */}
