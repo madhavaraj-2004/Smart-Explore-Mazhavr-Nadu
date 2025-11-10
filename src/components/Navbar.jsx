@@ -55,13 +55,16 @@ const Navbar = ({ onAskMazhavaClick }) => {
               <Link
                 to="/districts/salem"
                 className="dropdown-item block px-4 py-2 hover:bg-gray-100"
-                onClick={handleLinkClick}
-              >
+                onClick={handleLinkClick}>
                 Salem
               </Link>
-              <a href="/#districts" className="dropdown-item block px-4 py-2 hover:bg-gray-100">
+              
+              <Link to="/districts/dharmapuri"
+                className="dropdown-item block px-4 py-2 hover:bg-gray-100"
+                onClick={handleLinkClick}>
                 Dharmapuri
-              </a>
+              </Link>
+              
               <a href="/#districts" className="dropdown-item block px-4 py-2 hover:bg-gray-100">
                 Krishnagiri
               </a>
