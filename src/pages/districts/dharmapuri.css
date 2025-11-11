@@ -1,161 +1,216 @@
-/* ======= Dharmapuri Page Styles ======= */
-.dharmapuri-container {
-  font-family: "Poppins", sans-serif;
-  background: linear-gradient(135deg, #f0f7ff, #e8f0ff);
-  color: #1a1a1a;
+/* ======= Dharmapuri Page Styling ======= */
+body {
   margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f6ef;
+  color: #333;
+}
+
+.dharmapuri-container {
+  overflow-x: hidden;
 }
 
 /* ======= Header ======= */
 .dharmapuri-header {
   text-align: center;
-  padding: 80px 20px 40px;
-  background: linear-gradient(120deg, #004aad, #0072ff);
+  background: linear-gradient(90deg, #f97316, #fb923c);
   color: white;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  padding: 70px 20px 50px;
 }
 
 .dharmapuri-header h1 {
-  font-size: 2.5rem;
+  font-size: 42px;
+  color: white;
   font-weight: 700;
-  margin-bottom: 10px;
 }
 
 .dharmapuri-header p {
-  font-size: 1.1rem;
-  opacity: 0.95;
+  margin-top: 10px;
+  color: white;
+  font-size: 18px;
 }
 
 .dharmapuri-underline {
-  width: 100px;
-  height: 4px;
-  background: #00e0ff;
-  margin: 10px auto 20px;
-  border-radius: 5px;
+  width: 80px;
+  height: 3px;
+  background-color: #f97316;
+  margin: 15px auto 0;
+  border-radius: 3px;
 }
 
 /* ======= Navbar ======= */
 .dharmapuri-nav {
   display: flex;
   justify-content: center;
-  gap: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  backdrop-filter: blur(8px);
-  padding: 15px 0;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-  flex-wrap: wrap;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .dharmapuri-nav a {
   text-decoration: none;
-  color: #004aad;
-  font-weight: 600;
-  transition: all 0.3s ease;
+  color: #333;
+  padding: 14px 24px;
+  transition: 0.3s;
+  font-weight: 500;
 }
 
 .dharmapuri-nav a:hover {
-  color: #007bff;
-  text-decoration: underline;
+  color: #f97316;
 }
 
-/* ======= Section Common ======= */
+/* ======= Section ======= */
 .dharmapuri-section {
-  padding: 60px 10%;
+  padding: 70px 8%;
   text-align: center;
 }
 
 .dharmapuri-section h2 {
-  font-size: 2rem;
-  color: #004aad;
-  margin-bottom: 20px;
+  font-size: 32px;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
 }
 
-.dharmapuri-text {
-  max-width: 900px;
-  margin: 0 auto;
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #333;
+.dharmapuri-section h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background-color: #f97316;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
 }
 
-/* ======= Grid Layout ======= */
+/* ======= Glass Card ======= */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ======= Grid ======= */
 .dharmapuri-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
-  margin-top: 30px;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
 }
 
-/* ======= Card ======= */
 .dharmapuri-card {
-  background: rgba(255, 255, 255, 0.25);
-  border-radius: 20px;
   padding: 20px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s ease;
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
 }
 
 .dharmapuri-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .dharmapuri-card img {
   width: 100%;
   height: 180px;
+  border-radius: 12px;
   object-fit: cover;
-  border-radius: 15px;
   margin-bottom: 15px;
 }
 
 .dharmapuri-card h3 {
-  font-size: 1.25rem;
-  color: #004aad;
-  margin-bottom: 10px;
+  color: #f97316;
+  font-size: 20px;
+  margin-bottom: 8px;
 }
 
 .dharmapuri-card p {
-  font-size: 0.95rem;
-  color: #333;
+  font-size: 15px;
+  color: #555;
   line-height: 1.6;
 }
 
-/* ======= Education ======= */
+/* ======= Divisions Section ======= */
+#divisions {
+  background-color: #faf8f4;
+  padding: 70px 8%;
+  text-align: center;
+}
+
+#divisions h2 {
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+#divisions h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background-color: #f97316;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+#divisions .dharmapuri-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+#divisions .dharmapuri-card {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  padding: 25px 20px;
+  width: 100%;
+  max-width: 280px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+#divisions .dharmapuri-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+#divisions .dharmapuri-card h3 {
+  color: #f97316;
+  text-align: center;
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+#divisions .dharmapuri-card ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+#divisions .dharmapuri-card li {
+  font-size: 15px;
+  color: #444;
+  margin: 6px 0;
+}
+
+/* ======= Education Section ======= */
 .dharmapuri-education-list {
-  list-style-type: none;
-  padding: 25px;
+  max-width: 700px;
   margin: 0 auto;
-  max-width: 800px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  text-align: left;
+  padding: 30px;
+  list-style-type: disc;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
 }
 
 .dharmapuri-education-list li {
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  font-weight: 500;
-}
-
-.dharmapuri-education-list li:last-child {
-  border-bottom: none;
-}
-
-/* ======= Responsive ======= */
-@media (max-width: 768px) {
-  .dharmapuri-header h1 {
-    font-size: 2rem;
-  }
-
-  .dharmapuri-section {
-    padding: 40px 6%;
-  }
-
-  .dharmapuri-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
+  margin: 10px 0;
+  font-size: 16px;
+  color: #444;
 }

@@ -9,11 +9,11 @@ import athiyamanImage from "./district_asset/athiyaman_kottai.jpg";
 import panchapalliImage from "./district_asset/panchapalli_dam.jpg";
 
 export default function Dharmapuri() {
-  // ✅ History content
+  //  History content
   const historyText =
-    "Dharmapuri, part of the historic Mazhavar Nadu region, is celebrated for its natural beauty, waterfalls, temples, and cultural richness. Known as the 'Niagara of South India' for the majestic Hogenakkal Falls, this district blends scenic charm with deep spiritual roots. It is home to the ancient Theerthamalai Temple, historic Adhiyamankottai Fort, and the legacy of freedom fighter Subramanya Siva. Dharmapuri stands as a true representation of Tamil Nadu’s heritage, history, and devotion.";
+    "Dharmapuri, part of the historic Mazhavar Nadu region, , waterfalls, temples, and cultural richness. Known as the 'Niagara of South India' for the majestic Hogenakkal Falls, this district blends scenic charm with deep spiritual roots. It is home to the ancient Theerthamalai Temple, historic Adhiyamankottai Fort, and the legacy of freedom fighter Subramanya Siva. Dharmapuri stands as a true representation of Tamil Nadu’s heritage, history, and devotion.";
 
-  // ✅ Tourism spots
+  //  Tourism spots
   const tourismSpots = [
     {
       name: "Hogenakkal Falls",
