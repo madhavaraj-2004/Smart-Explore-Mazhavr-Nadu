@@ -1,0 +1,216 @@
+/* ======= Namakkal Page Styling ======= */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f6ef;
+  color: #333;
+}
+
+.namakkal-container {
+  overflow-x: hidden;
+}
+
+/* ======= Header ======= */
+.namakkal-header {
+  text-align: center;
+  background: linear-gradient(90deg, #f97316, #fb923c);
+  color: white;
+  padding: 70px 20px 50px;
+}
+
+.namakkal-header h1 {
+  font-size: 42px;
+  color: white;
+  font-weight: 700;
+}
+
+.namakkal-header p {
+  margin-top: 10px;
+  color: white;
+  font-size: 18px;
+}
+
+.namakkal-underline {
+  width: 80px;
+  height: 3px;
+  background-color: #f97316;
+  margin: 15px auto 0;
+  border-radius: 3px;
+}
+
+/* ======= Navbar ======= */
+.namakkal-nav {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.namakkal-nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 14px 24px;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.namakkal-nav a:hover {
+  color: #f97316;
+}
+
+/* ======= Section ======= */
+.namakkal-section {
+  padding: 70px 8%;
+  text-align: center;
+}
+
+.namakkal-section h2 {
+  font-size: 32px;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+.namakkal-section h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background-color: #f97316;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+/* ======= Glass Card ======= */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* ======= Grid ======= */
+.namakkal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
+}
+
+.namakkal-card {
+  padding: 20px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.namakkal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.namakkal-card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.namakkal-card h3 {
+  color: #f97316;
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.namakkal-card p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* ======= Divisions Section ======= */
+#divisions {
+  background-color: #faf8f4;
+  padding: 70px 8%;
+  text-align: center;
+}
+
+#divisions h2 {
+  font-size: 32px;
+  color: #222;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+}
+
+#divisions h2::after {
+  content: "";
+  width: 60px;
+  height: 3px;
+  background-color: #f97316;
+  display: block;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+#divisions .namakkal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+  justify-items: center;
+}
+
+#divisions .namakkal-card {
+  text-align: left;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  padding: 25px 20px;
+  width: 100%;
+  max-width: 280px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+#divisions .namakkal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+#divisions .namakkal-card h3 {
+  color: #f97316;
+  text-align: center;
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+#divisions .namakkal-card ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 10px;
+}
+
+#divisions .namakkal-card li {
+  font-size: 15px;
+  color: #444;
+  margin: 6px 0;
+}
+
+/* ======= Education Section ======= */
+.namakkal-education-list {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+  padding: 30px;
+  list-style-type: disc;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+}
+
+.namakkal-education-list li {
+  margin: 10px 0;
+  font-size: 16px;
+  color: #444;
+}
