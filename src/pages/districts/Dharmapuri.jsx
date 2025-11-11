@@ -3,6 +3,10 @@ import "./dharmapuri.css";
 
 // ✅ Importing images for tourism spots
 import hogenakkalImage from "./district_asset/hogenakkal.jpg";
+import vathalmalaiImage from "./district_asset/vathalmalai.jpg";
+import thoppaiyarImage from "./district_asset/thoppaiyar.jpg";
+import athiyamanImage from "./district_asset/athiyaman_kottai.jpg";
+import panchapalliImage from "./district_asset/panchapalli_dam.jpg";
 
 export default function Dharmapuri() {
   // ✅ History content
