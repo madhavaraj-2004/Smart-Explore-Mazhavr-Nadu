@@ -95,7 +95,7 @@ export default function Krishnagiri() {
       <header className="krishnagiri-header">
         <h1>Discover Krishnagiri District</h1>
         <div className="krishnagiri-underline"></div>
-        <p>The Gateway of Tamil Nadu — Hills, Heritage, and Harmony</p>
+        <p>The Gateway of Tamil Nadu - Hills, Heritage, and Harmony</p>
       </header>
 
       {/* Navbar */}
@@ -169,3 +169,4 @@ export default function Krishnagiri() {
     </div>
   );
 }
+
