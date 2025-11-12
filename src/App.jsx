@@ -10,6 +10,7 @@ import Chatbot from './components/Chatbot';
 import About from './pages/About'; // ✅ Import About page
 import Salem from './pages/districts/Salem'; // ✅ Import Salem district page
 import Dharmapuri from './pages/districts/Dharmapuri'; // ✅ Import Dharmapuri district page
+import Namakkal from './pages/districts/Namakkal'; // ✅ Import Namakkal district page
 
 function App() {
   return (
@@ -36,6 +37,8 @@ function App() {
           <Route path="/districts/salem" element={<Salem />} />
           {/* Dharmapuri District Page Route */}
           <Route path="/districts/dharmapuri" element={<Dharmapuri />} />
+          {/*Namakkal District Page Route - To be added similarly */}
+          <Route path="/districts/namakkal" element={<Namakkal />} />
 
         </Routes>
       </main>
