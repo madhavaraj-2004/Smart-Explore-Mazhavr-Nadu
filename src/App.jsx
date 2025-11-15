@@ -12,6 +12,7 @@ import Salem from './pages/districts/Salem'; // ✅ Import Salem district page
 import Dharmapuri from './pages/districts/Dharmapuri'; // ✅ Import Dharmapuri district page
 import Krishnagiri from './pages/districts/Krishnagiri'; // ✅ Import Krishnagiri district page
 import Namakkal from './pages/districts/Namakkal'; // ✅ Import Namakkal district page
+import Atraction from './pages/Attraction'; // ✅ Import Atraction page
 
 
 function App() {
@@ -47,6 +48,9 @@ function App() {
           
           {/*Namakkal District Page Route - To be added similarly */}
           <Route path="/districts/namakkal" element={<Namakkal />} />
+
+          {/* Add more Mazhava Region attraction routes here */}
+          <Route path="/atraction" element={<Atraction />} />
 
         </Routes>
       </main>

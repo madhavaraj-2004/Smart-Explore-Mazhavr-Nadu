@@ -79,9 +79,12 @@ const Navbar = ({ onAskMazhavaClick }) => {
             </div>
           </div>
 
-          <Link to="/" className="nav-link hover:text-yellow-300" onClick={handleLinkClick}>
+          <Link to="/atraction" 
+            className="nav-link hover:text-yellow-300" 
+            onClick={handleLinkClick}>
             Attractions
           </Link>
+          
           <Link to="/" className="nav-link hover:text-yellow-300" onClick={handleLinkClick}>
             Culture
           </Link>
