@@ -86,7 +86,7 @@ const Navbar = ({ onAskMazhavaClick }) => {
           </Link>
           
           <Link to="/" className="nav-link hover:text-yellow-300" onClick={handleLinkClick}>
-            Culture
+            Festivals
           </Link>
         </div>
 
