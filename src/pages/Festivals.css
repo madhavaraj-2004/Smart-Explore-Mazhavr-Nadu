@@ -1,0 +1,241 @@
+/* ===========================================
+   GLOBAL THEME + FONT
+=========================================== */
+body {
+  font-family: "Poppins", sans-serif;
+  background: #faf7f2;
+  color: #333;
+  margin: 0;
+  transition: 0.3s ease-in-out;
+}
+
+/* Tamil font class */
+.tamil-font {
+  font-family: "Lakki Reddy", "Catamaran", sans-serif !important;
+  letter-spacing: 0.5px;
+}
+
+/* Dark Mode Theme */
+body.dark-mode {
+  background: #0f0f0f;
+  color: #e8e8e8;
+  transition: 0.4s;
+}
+
+/* ===========================================
+   TOGGLE BUTTON
+=========================================== */
+.theme-toggle-btn {
+  background: #ff6b00;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 30px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  display: block;
+  margin: 12px auto;
+  transition: 0.25s;
+}
+
+.theme-toggle-btn:hover {
+  transform: scale(1.09);
+  box-shadow: 0 0 14px rgba(0,0,0,0.30);
+}
+
+/* ===========================================
+   SLIDER STYLING - Perfect + Cinematic
+=========================================== */
+
+.slider-container {
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  position: relative;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.15);
+}
+
+.slider-inner {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s ease-in-out;
+}
+
+.slider-img {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  animation: cinematicFade 1.6s ease-in-out;
+  filter: brightness(0.88);
+}
+
+/* cinematic effect */
+@keyframes cinematicFade {
+  0% { opacity: 0.2; transform: scale(1.05); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+/* overlay effect for premium look */
+.slider-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(0,0,0,0.25), rgba(0,0,0,0.05));
+  pointer-events: none;
+}
+
+/* Responsive Slider */
+@media (max-width: 768px) {
+  .slider-container {
+    height: 240px;
+    border-radius: 0 0 16px 16px;
+  }
+  .slider-img {
+    object-position: center top;
+  }
+}
+
+/* ===========================================
+   MAIN TITLES
+=========================================== */
+.festival-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #d35400;
+  margin: 25px auto 8px;
+  text-align: center;
+}
+
+.festival-subtext {
+  text-align: center;
+  color: #555;
+  margin-bottom: 30px;
+  max-width: 650px;
+  line-height: 1.55;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Dark Mode Text Colors */
+body.dark-mode .festival-title {
+  color: #ffb862;
+}
+
+body.dark-mode .festival-subtext {
+  color: #cfcfcf;
+}
+
+/* ===========================================
+   CARD GRID
+=========================================== */
+.festival-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
+  padding: 0 18px 50px;
+}
+
+@media (min-width: 768px) {
+  .festival-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ===========================================
+   CARD DESIGN (Hover + Expand)
+=========================================== */
+.card {
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  cursor: pointer;
+  transition: all 0.35s ease-in-out;
+  position: relative;
+  max-height: 160px;
+  overflow: hidden;
+}
+
+/* hover visual */
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 26px rgba(0,0,0,0.14);
+}
+
+/* expand state */
+.card.active {
+  max-height: 950px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  border-color: #ffa44d;
+}
+
+/* hint text */
+.card::after {
+  content: "Click to expand";
+  font-size: 12px;
+  color: #ff6b00;
+  position: absolute;
+  bottom: 10px;
+  right: 15px;
+}
+
+.card.active::after {
+  display: none;
+}
+
+/* Dark Mode Card UI */
+body.dark-mode .card {
+  background: #181818;
+  border: 1px solid #3e3e3e;
+}
+
+/* ===========================================
+   CARD TEXT
+=========================================== */
+.district-name {
+  font-size: 26px;
+  font-weight: 700;
+  color: #bf4a07;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #dd5d0c;
+  margin-top: 18px;
+}
+
+/* Dark Mode Text */
+body.dark-mode .district-name {
+  color: #ff8a3a;
+}
+
+body.dark-mode .section-title {
+  color: #ffa460;
+}
+
+/* bullet list */
+.card ul {
+  margin-left: 19px;
+  padding: 0;
+}
+
+.card ul li {
+  margin-bottom: 7px;
+  line-height: 1.6;
+}
+
+/* Smooth Expand Animation */
+.card {
+  transition: max-height 0.7s ease-in-out;
+}

@@ -13,6 +13,7 @@ import Dharmapuri from './pages/districts/Dharmapuri'; // ✅ Import Dharmapuri 
 import Krishnagiri from './pages/districts/Krishnagiri'; // ✅ Import Krishnagiri district page
 import Namakkal from './pages/districts/Namakkal'; // ✅ Import Namakkal district page
 import Atraction from './pages/Attraction'; // ✅ Import Atraction page
+import Festivals from './pages/Festivals'; // ✅ Import Festivals page
 
 
 function App() {
@@ -51,6 +52,9 @@ function App() {
 
           {/* Add more Mazhava Region attraction routes here */}
           <Route path="/atraction" element={<Atraction />} />
+
+          {/* Festivals Page Route */}
+          <Route path="/festivals" element={<Festivals />} />
 
         </Routes>
       </main>
