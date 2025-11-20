@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../assets/mazhavar-logo.png';
 
 const Navbar = ({ onAskMazhavaClick }) => {
   const [isMobileNavActive, setIsMobileNavActive] = useState(false);
@@ -18,7 +19,7 @@ const Navbar = ({ onAskMazhavaClick }) => {
         {/* ✅ Logo */}
         <Link to="/" className="nav-logo flex items-center gap-2" onClick={handleLinkClick}>
           <div className="logo-icon bg-white text-orange-600 font-bold rounded-full w-8 h-8 flex items-center justify-center">
-            M
+            <img src={logo} alt="Logo" className="logo-img" />
           </div>
           <div className="logo-text">
             <span className="logo-title block text-xl font-bold">Smart Explore</span>

@@ -181,17 +181,24 @@ html {
 }
 
 .logo-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-    background: var(--gradient-hero);
-    border-radius: 0.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    font-weight: 700;
-    font-size: 1.25rem;
+  width: 50px;          /* or w-10 in Tailwind */
+  height: 50px;         /* or h-10 */
+  background: #fff;
+  border-radius: 50%;   /* perfect circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* optional soft shadow */
 }
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;   /* image also rounded */
+}
+
+
 
 .logo-text {
     display: flex;
