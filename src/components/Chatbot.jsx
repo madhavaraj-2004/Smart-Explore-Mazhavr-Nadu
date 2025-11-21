@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Chatbot.css';
 
-// Icons
+// --- Icons ---
 const ChatIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" width="24" height="24">
         <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
@@ -27,15 +27,16 @@ const SendIcon = () => (
     </svg>
 );
 
+// --- Main Component ---
 const Chatbot = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState([
         { id: 1, text: 'Vanakkam! Welcome to Mazhavar Nadu. How can I help you today?', sender: 'bot' }
     ]);
     const [inputValue, setInputValue] = useState('');
+    const [isListening, setIsListening] = useState(false); // New State for Audio
     
-    // Dummy history data
-    const [history, setHistory] = useState([
+    const [history] = useState([
         "Tourist Spots in Salem",
         "Best Hotels in Yercaud",
         "Mettur Dam Timings", 
@@ -57,9 +58,46 @@ const Chatbot = () => {
         document.body.style.overflow = !isOpen ? 'hidden' : 'unset';
     };
 
+    // --- Voice to Text Logic ---
     const handleAudioClick = () => {
-        alert("Audio listening requires microphone permissions and API integration.");
+        // Check if browser supports SpeechRecognition
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (!SpeechRecognition) {
+            alert("Your browser does not support Voice to Text. Please use Google Chrome.");
+            return;
+        }
+
+        const recognition = new SpeechRecognition();
+        recognition.lang = 'en-IN'; // Set to Indian English
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        if (!isListening) {
+            recognition.start();
+            setIsListening(true);
+        } else {
+            recognition.stop();
+            setIsListening(false);
+        }
+
+        recognition.onresult = (event) => {
+            const transcript = event.results[0][0].transcript;
+            setInputValue(transcript);
+            setIsListening(false);
+        };
+
+        recognition.onspeechend = () => {
+            recognition.stop();
+            setIsListening(false);
+        };
+
+        recognition.onerror = (event) => {
+            console.error("Speech recognition error", event.error);
+            setIsListening(false);
+        };
     };
+    // ---------------------------
 
     const getBotResponse = (userInput) => {
         const lowerInput = userInput.toLowerCase().trim();
@@ -89,7 +127,6 @@ const Chatbot = () => {
 
     return (
         <>
-            {/* Floating Trigger Button */}
             {!isOpen && (
                 <button onClick={toggleChat} className="chat-toggle-button" aria-label="Open chat">
                     <div className="chat-button-text">Ask Mazhava</div>
@@ -97,10 +134,7 @@ const Chatbot = () => {
                 </button>
             )}
 
-            {/* Full Page Layout */}
             <div className={`chat-full-page-overlay ${isOpen ? 'open' : ''}`}>
-                
-                {/* 1. SIDEBAR HISTORY */}
                 <aside className="chat-sidebar">
                     <div className="sidebar-header">
                          <button onClick={toggleChat} className="back-to-mazhava-btn">
@@ -123,7 +157,6 @@ const Chatbot = () => {
                     </div>
                 </aside>
 
-                {/* 2. MAIN CHAT AREA */}
                 <main className="chat-main-area">
                     <header className="chat-main-header">
                         <h3>Mazhava AI</h3>
@@ -146,20 +179,24 @@ const Chatbot = () => {
                                 type="text"
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
-                                placeholder="Ask anything about Mazhavar Nadu..."
+                                placeholder={isListening ? "Listening..." : "Ask anything about Mazhavar Nadu..."}
                             />
                             
-                            {/* Audio Button */}
-                            <button type="button" className="action-btn audio-btn" onClick={handleAudioClick} title="Use Microphone">
+                            {/* Audio Button with Active State */}
+                            <button 
+                                type="button" 
+                                className={`action-btn audio-btn ${isListening ? 'listening' : ''}`} 
+                                onClick={handleAudioClick} 
+                                title="Use Microphone"
+                            >
                                 <MicIcon />
                             </button>
 
-                            {/* Send Button */}
                             <button type="submit" className="action-btn send-btn" disabled={!inputValue.trim()}>
                                 <SendIcon />
                             </button>
                         </form>
-                        <p className="disclaimer-text">Mazhava AI can make mistakes. Check important info.</p>
+                        <p className="disclaimer-text">Mazhava AI , Developed By Madhavraj.</p>
                     </div>
                 </main>
             </div>
