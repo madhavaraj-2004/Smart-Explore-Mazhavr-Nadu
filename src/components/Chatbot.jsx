@@ -1,6 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Chatbot.css';
 
+// ---------------------------------------------------------
+// 🔴 STEP 1: PASTE YOUR NGROK LINK HERE (Keep the /chat at the end)
+// Example: "https://a1b2-34-56.ngrok-free.app/chat"
+const API_URL = "https://isabell-soapless-rhoda.ngrok-free.dev/chat";
+// ---------------------------------------------------------
+
 // --- Icons ---
 const ChatIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" width="24" height="24">
@@ -34,8 +40,9 @@ const Chatbot = () => {
         { id: 1, text: 'Vanakkam! Welcome to Mazhavar Nadu. How can I help you today?', sender: 'bot' }
     ]);
     const [inputValue, setInputValue] = useState('');
-    const [isListening, setIsListening] = useState(false); // New State for Audio
-    
+    const [isListening, setIsListening] = useState(false);
+    const [isLoading, setIsLoading] = useState(false); // New loading state
+
     const [history] = useState([
         "Tourist Spots in Salem",
         "Best Hotels in Yercaud",
@@ -51,7 +58,7 @@ const Chatbot = () => {
 
     useEffect(() => {
         scrollToBottom();
-    }, [messages]);
+    }, [messages, isLoading]);
 
     const toggleChat = () => {
         setIsOpen(!isOpen);
@@ -60,7 +67,6 @@ const Chatbot = () => {
 
     // --- Voice to Text Logic ---
     const handleAudioClick = () => {
-        // Check if browser supports SpeechRecognition
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
         if (!SpeechRecognition) {
@@ -69,7 +75,7 @@ const Chatbot = () => {
         }
 
         const recognition = new SpeechRecognition();
-        recognition.lang = 'en-IN'; // Set to Indian English
+        recognition.lang = 'en-IN'; 
         recognition.interimResults = false;
         recognition.maxAlternatives = 1;
 
@@ -97,32 +103,47 @@ const Chatbot = () => {
             setIsListening(false);
         };
     };
-    // ---------------------------
 
-    const getBotResponse = (userInput) => {
-        const lowerInput = userInput.toLowerCase().trim();
-        if (lowerInput.includes('hello') || lowerInput.includes('hi')) return "Hello there! Ask me about districts, temples, or food.";
-        if (lowerInput.includes('district')) return "Mazhavar nadu has 4 districts! Some popular ones for tourists are Yercud, Hogainakal, Metturdam, Hosur, Namakkal Temple. Which one interests you?";
-        if (lowerInput.includes('temple')) return "The region is famous for its temples! Salem Kottaimariyamman, Namakkal Anjaneyar temple, and Krishnagiri Murugan Temple are must-visits.";
-        if (lowerInput.includes('food') || lowerInput.includes('eat')) return "You must try the local cuisine! Don't miss out on Dosa, Idli, Chettinad chicken, and the sweet Pongal, Salem Thatuvadai, Dharmapuri Opputu.";
-        if (lowerInput.includes('bye') || lowerInput.includes('thanks')) return "You're welcome! Have a great time exploring Mazhavar Nadu. Nandri!";
-        return "I'm still learning! Try asking me about 'districts', 'temples', or 'food' in Mazhavar Nadu.";
-    };
-
-    const handleSendMessage = (e) => {
+    // --- 🔴 CHANGED: Handle Send Message (Connects to Python Backend) ---
+    const handleSendMessage = async (e) => {
         e.preventDefault();
         if (inputValue.trim() === '') return;
 
+        // 1. Add User Message immediately
         const userMessage = { id: Date.now(), text: inputValue, sender: 'user' };
         setMessages(prev => [...prev, userMessage]);
         
-        setTimeout(() => {
-            const botResponseText = getBotResponse(inputValue);
-            const botMessage = { id: Date.now() + 1, text: botResponseText, sender: 'bot' };
-            setMessages(prev => [...prev, botMessage]);
-        }, 1000);
+        const messageToSend = inputValue; // Store text to send
+        setInputValue(''); // Clear input box
+        setIsLoading(true); // Show loading state
 
-        setInputValue('');
+        try {
+            // 2. Send to Google Colab / Ngrok
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: messageToSend }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+
+            // 3. Add Bot Response
+            const botMessage = { id: Date.now() + 1, text: data.reply, sender: 'bot' };
+            setMessages(prev => [...prev, botMessage]);
+
+        } catch (error) {
+            console.error("Error connecting to AI:", error);
+            const errorMessage = { id: Date.now() + 1, text: "Sorry, I am having trouble connecting to the server. Please check if the Colab backend is running.", sender: 'bot' };
+            setMessages(prev => [...prev, errorMessage]);
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -144,7 +165,7 @@ const Chatbot = () => {
                     </div>
                     
                     <div className="new-chat-btn-container">
-                        <button className="new-chat-btn">+ New Chat</button>
+                        <button className="new-chat-btn" onClick={() => setMessages([])}>+ New Chat</button>
                     </div>
 
                     <div className="history-list">
@@ -170,6 +191,15 @@ const Chatbot = () => {
                                 </div>
                             </div>
                         ))}
+                        
+                        {/* Show simple loading indicator if waiting for AI */}
+                        {isLoading && (
+                             <div className="chat-message-row bot">
+                                <div className="message-bubble">
+                                    Typing...
+                                </div>
+                            </div>
+                        )}
                         <div ref={messagesEndRef} />
                     </div>
 
@@ -180,9 +210,9 @@ const Chatbot = () => {
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
                                 placeholder={isListening ? "Listening..." : "Ask anything about Mazhavar Nadu..."}
+                                disabled={isLoading} // Disable input while waiting
                             />
                             
-                            {/* Audio Button with Active State */}
                             <button 
                                 type="button" 
                                 className={`action-btn audio-btn ${isListening ? 'listening' : ''}`} 
@@ -192,7 +222,7 @@ const Chatbot = () => {
                                 <MicIcon />
                             </button>
 
-                            <button type="submit" className="action-btn send-btn" disabled={!inputValue.trim()}>
+                            <button type="submit" className="action-btn send-btn" disabled={!inputValue.trim() || isLoading}>
                                 <SendIcon />
                             </button>
                         </form>
