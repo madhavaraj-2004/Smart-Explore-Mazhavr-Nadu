@@ -10,8 +10,8 @@ modern development. The web application aims to digitally preserve and promote t
 identity of this region by integrating: 
 
 Tech Tools:
-React js + Vite js
-Vennila CSS
-Python 
-chatbot Data Training Model: all-MiniLM-L6-v2
-Network Tunel Google-Colab: 36WF42qRjJK2oCSTyev3idEULUg_22xthuhzm2t91dnAjRWnZ
+React js + Vite js, 
+Vennila CSS, 
+Python, 
+chatbot Data Training Model: all-MiniLM-L6-v2, 
+Network Tunel Google-Colab: Ngrok - 36WF42qRjJK2oCSTyev3idEULUg_22xthuhzm2t91dnAjRWnZ
