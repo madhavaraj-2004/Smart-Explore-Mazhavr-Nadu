@@ -55,3 +55,16 @@ Operational docs:
 - Deployment env sets: docs/deployment-env.md
 - Production runbook: docs/production-runbook.md
 - Smoke test script: scripts/smoke_test.py
+
+GitHub Actions workflows:
+- CI (push/PR): .github/workflows/ci.yml
+	- Runs frontend lint + build and backend unit tests
+	- Uploads frontend build artifact (frontend-dist)
+- Release: .github/workflows/release.yml
+	- Validates release candidate, waits for manual production approval via `production` environment, then marks release
+- Nightly uptime smoke: .github/workflows/nightly-smoke.yml
+	- Runs daily against Render backend using scripts/smoke_test.py
+
+Required GitHub setup:
+1. Create environment `production` and add required reviewers for manual approval.
+2. Optional secret: `RENDER_BACKEND_URL` (defaults to https://smart-explorer-mazhavarnadu-api.onrender.com if not set).
