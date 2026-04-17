@@ -1,0 +1,36 @@
+name: Nightly Uptime Smoke Test
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+  workflow_dispatch:
+
+jobs:
+  smoke-test:
+    name: Render Uptime Smoke Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Resolve backend URL
+        id: backend-url
+        env:
+          RENDER_BACKEND_URL: ${{ secrets.RENDER_BACKEND_URL }}
+        run: |
+          if [ -n "${RENDER_BACKEND_URL}" ]; then
+            echo "url=${RENDER_BACKEND_URL}" >> "$GITHUB_OUTPUT"
+          else
+            echo "url=https://smart-explorer-mazhavarnadu-api.onrender.com" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run smoke test
+        run: |
+          python scripts/smoke_test.py --base-url "${{ steps.backend-url.outputs.url }}"
