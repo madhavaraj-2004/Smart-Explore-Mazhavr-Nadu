@@ -27,14 +27,12 @@ app = FastAPI(title='Smart Explorer Mazhavarnadu Auth API', version='1.0.0')
 
 
 def _allowed_origins() -> list[str]:
-    configured = os.getenv('CORS_ALLOWED_ORIGINS', '').strip()
-    if configured:
-        return [origin.strip() for origin in configured.split(',') if origin.strip()]
     return [
         'http://localhost:5173',
         'http://127.0.0.1:5173',
         'http://localhost:4173',
-        'http://127.0.0.1:4173',
+        'https://smart-explore-mazhavr-nadu-ufp9.vercel.app',
+        '*'
     ]
 
 app.add_middleware(
