@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import DistrictCard from '../../components/DistrictCard';
-import './Salem.css';
+import './salem.css';
 
 import yercaudImage from './district_asset/yercaud.jpg';
 import killiyurImage from './district_asset/killiyurfalls.jpg';
