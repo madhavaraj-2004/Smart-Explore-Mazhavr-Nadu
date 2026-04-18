@@ -6,7 +6,7 @@ import damImage from './district_asset/krishnagiri_dam.jpg';
 import fortImage from './district_asset/krishnagiri_fort.jpg';
 import padmavathiImage from './district_asset/padmavathi_temple.jpg';
 import chandrachoodeswararImage from './district_asset/chandra_choodeswarar.jpg';
-import rayakottaiFortImage from './district_asset/rayakottai_fort.jpg';
+import rayakottaifort from "./district_asset/rayakottai_fort.jpg"
 import melagiriImage from './district_asset/melagiri_hills.jpg';
 
 const MotionHeader = motion.header;
