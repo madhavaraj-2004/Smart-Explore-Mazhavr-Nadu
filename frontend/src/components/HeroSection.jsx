@@ -1,11 +1,10 @@
 ﻿import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import heroBackground from '../assets/hero-background.jpg';
-import heroVideo from '../assets/Mazhavarnadu.mp4';
 
 
 const MotionDiv = motion.div;
-const HERO_VIDEO_SRC = heroVideo;
+const video = '/Mazhavarnadu.mp4';
 const HERO_VIDEO_PUBLIC_FALLBACK = '/videos/mazhavarnadu-tourism.mp4';
 
 const HeroSection = () => {
@@ -49,7 +48,7 @@ const HeroSection = () => {
                         poster={heroBackground}
                         onError={() => setShouldPlayVideo(false)}
                     >
-                        <source src={HERO_VIDEO_SRC} type="video/mp4" />
+                        <source src={video} type="video/mp4" />
                         <source src={HERO_VIDEO_PUBLIC_FALLBACK} type="video/mp4" />
                     </video>
                 ) : (
