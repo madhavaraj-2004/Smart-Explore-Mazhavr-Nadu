@@ -7,7 +7,7 @@ import anjaneyarImage from './district_asset/namakkal_anjaneyar.jpg';
 import kollihillsImage from './district_asset/kolli_hills.jpg';
 import aagayaGangaiImage from './district_asset/aagaya_gangai.jpg';
 import namagiriImage from './district_asset/namagiri_amman.jpg';
-import tiruchengodeImage from './district_asset/tiruchengode_temple.jpg';
+import tiruchengodeImage from './district_asset/tiruchengode_temple.JPG';
 import jedarpalayamImage from './district_asset/jedarpalayam_dam.jpg';
 
 const MotionHeader = motion.header;
