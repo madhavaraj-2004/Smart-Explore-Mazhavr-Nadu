@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const LOCAL_FALLBACKS = ['http://localhost:8000', 'http://127.0.0.1:8000'];
+const LOCAL_FALLBACKS = ['https://mazhavarnadu-backend.onrender.com', 'https://mazhavarnadu-backend.onrender.com'];
 const IS_DEV = import.meta.env.DEV;
 
 function normalizeBaseUrl(value) {
