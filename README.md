@@ -1,6 +1,5 @@
 # 🌍 Smart Explorer Mazhavar Nadu
 
-<div align="center">
 
 ## 🏛️ Discover Heritage • 🌿 Explore Nature • 🤖 Experience AI
 
@@ -8,7 +7,6 @@
 
 🌐 **Live Demo:** https://smart-explore-mazhavr-nadu-ufp9.vercel.app/
 
-</div>
 
 ---
 
